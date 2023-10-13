@@ -1,0 +1,27 @@
+server:
+  port: 8092
+spring:
+  application:
+    name: userservice
+  cloud:
+    nacos:
+      server-addr: http://localhost:8848
+      discovery:
+        cluster-name: sh
+  datasource:
+    druid:
+      username: root
+      password: whj131420
+      url: jdbc:mysql://localhost:3306/whhdb
+      driver-class-name: com.mysql.cj.jdbc.Driver
+#------------------redis分片集群地址-------------------------
+  redis:
+    cluster:
+      nodes:
+        - 192.168.80.151:7001
+        - 192.168.80.151:7002
+        - 192.168.80.151:7003
+        - 192.168.80.151:8001
+        - 192.168.80.151:8002
+        - 192.168.80.151:8003
+        - 192.168.80.151:7004

@@ -1,0 +1,42 @@
+server:
+  port: 7090
+spring:
+  application:
+    name: orderservice
+  cloud:
+#nacos地址
+    nacos:
+      discovery:
+        server-addr: http://localhost:8848
+        cluster-name: gz
+#sentinel控制台地址(服务雪崩问题)
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+      web-context-unify: false #关闭context整合
+  #数据源连接池
+  datasource:
+    druid:
+      username: root
+      password: whj131420
+      url: jdbc:mysql://localhost:3306/whhdb
+      driver-class-name: com.mysql.cj.jdbc.Driver
+#负载均衡规则
+userservice:
+  ribbon:
+    NfLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule #负载均衡规则
+#开启饥饿加载，服务一启动，就会拉取服务列表（第一次访问时间短）
+ribbon:
+  eager-load:
+    enabled: true #开启饥饿加载，服务一启动，就会拉取服务列表（第一次访问时间短）
+    clients:
+      - userservice
+#开启feign(HttpClient发送请求的例外一种客户端)
+feign:
+  sentinel:
+    enabled: true
+  httpclient:
+    enabled: true #开启功能
+    #连接池配置
+    max-connections: 200
+    max-connections-per-route: 50

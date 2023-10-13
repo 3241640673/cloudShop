@@ -1,0 +1,13 @@
+spring:
+  rabbitmq:
+    host: 192.168.80.151 #主机
+    port: 111
+    virtual-host: / #虚拟主机
+    username: whh
+    password: whj131420
+  datasource:
+    druid:
+        username: root
+        password: whj131420
+        url: jdbc:mysql://localhost:3306/whhdb
+        driver-class-name: com.mysql.cj.jdbc.Driver

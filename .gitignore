@@ -1,0 +1,9 @@
+# Project exclude paths
+/consumer/target/
+/feign-api/target/
+/geteway/target/
+/newJavaBase/target/
+/orderService/target/
+/phonenumber/target/
+/publisher/target/
+/userService/target/
